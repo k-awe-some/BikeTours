@@ -1,0 +1,34 @@
+.header {
+  height: 95vh;
+  background-image: -webkit-gradient(linear, left top, right bottom, from($color-secondary), to($color-primary)), url("images/biketours-hero.jpg");
+  background-image: linear-gradient(to right bottom, $color-secondary, $color-primary), url("images/biketours-hero.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+}
+
+/*---------------- HEADER LOGO BOX ----------------*/
+.header__logo-box {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+
+  &__logo {
+    height: 10rem;
+  }
+}
+/*---------------- HEADER TEXT BOX ----------------*/
+.header__text-box {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -75%);
+          transform: translate(-50%, -75%);
+
+  &:last-child {
+    margin-top: 6rem;
+  }
+}

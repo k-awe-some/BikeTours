@@ -1,0 +1,74 @@
+.btn-white {
+  background-color: $color-white;
+  color: $color-cta-text;
+}
+
+.btn-green {
+  color: $color-white;
+  background-image: -webkit-gradient(linear, left top, right bottom, from($color-secondary), to($color-primary));
+  background-image: linear-gradient(to bottom right, $color-secondary, $color-primary);
+}
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    border-radius: 10rem;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+
+    // for the <button> html element
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    -webkit-transform: translateY(-0.5rem);
+            transform: translateY(-0.5rem);
+    -webkit-box-shadow: 0 1rem 2rem $color-box-shadow;
+            box-shadow: 0 1rem 2rem $color-box-shadow;
+  }
+
+  &:active {
+    -webkit-transform: translateX(-0.1rem);
+            transform: translateX(-0.1rem);
+    -webkit-box-shadow: 0 0.5rem 1rem $color-box-shadow;
+            box-shadow: 0 0.5rem 1rem $color-box-shadow;
+  }
+}
+
+.btn-text {
+
+  &:link,
+  &:visited {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: $color-primary;
+    padding: 10px;
+    border-bottom: 1px solid $color-primary;
+    -webkit-transition: all, 0.1s;
+    -webkit-transition: all, 0.2s;
+    -webkit-transition: all, 0.5s;
+    -webkit-transition: all, 0.3s;
+    transition: all, 0.3s;
+  }
+
+  &:hover {
+    color: $color-white;
+    background-image: -webkit-gradient(linear, left top, right bottom, from($color-secondary), to($color-primary));
+    background-image: linear-gradient(to bottom right, $color-secondary, $color-primary);
+    padding: 10px;
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+    -webkit-box-shadow: 0 0.5rem 1rem $color-box-shadow;
+            box-shadow: 0 0.5rem 1rem $color-box-shadow;
+  }
+
+  &:active {}
+}

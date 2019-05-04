@@ -1,0 +1,33 @@
+.u-center-text {
+  text-align: center;
+}
+// BLEND MODES
+
+.container-img {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.container-img-1 {
+  background-color: orange;
+
+  .tour-box__img--1 {
+    mix-blend-mode: lighten;
+  }
+}
+
+.container-img-2 {
+  background-color: mediumseagreen;
+
+  .tour-box__img--2 {
+    mix-blend-mode: screen;
+  }
+}
+
+.container-img-3 {
+  background-color: royalblue;
+
+  .tour-box__img--3 {
+    mix-blend-mode: screen;
+  }
+}

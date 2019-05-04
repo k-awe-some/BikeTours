@@ -1,0 +1,91 @@
+// ABOUT SECTION
+
+.flex-2-cols {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 5rem 0;
+
+  .about-features {
+    width: 50%;
+    padding: 0 3rem 0 2rem;
+  }
+
+  .about-images {
+    width: 50%;
+    padding: 0 2rem 0 3rem;
+  }
+}
+// FEATURES SECTION
+
+.flex-4-cols {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  .feature-box {
+    width: 40%;
+    background: $color-white-transparent;
+    text-align: center;
+    padding: 3rem 2rem;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+
+    &:not(:last-child) {
+      margin-right: 3rem;
+    }
+
+    &:hover {
+      -webkit-transform: translateY(-1rem);
+      transform: translateY(-1rem);
+    }
+
+    &__icon {
+      font-size: 4rem;
+      color: $color-primary;
+    }
+  }
+}
+// TOURS SECTION
+
+.flex-3-cols {
+  margin: 0 0 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+
+  .tour-box {
+    width: 40%;
+
+    &:not(:last-child) {
+      margin-right: 3rem;
+    }
+  }
+}
+// STORIES & BOOKING SECTION
+
+.flex-2-rows {
+  width: 70%;
+  margin: 5rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: distribute;
+  -webkit-box-pack: justify;
+}

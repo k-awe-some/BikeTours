@@ -1,0 +1,140 @@
+.booking-box {
+  background-image: linear-gradient(105deg, $color-white-transparent-90 0%, $color-white-transparent-90 49.9%, transparent 50%), url("images/nat-10.jpg");
+  // linear gradient at 105deg to create an angle
+  // color-white-transparent at position 0% and 49.9% to make smooth gradience
+  // color "transparent" at position 50%
+  // "transparent" is also a valid color value
+  background-size: cover;
+  border-radius: 3px;
+  width: 68.5%;
+  height: 55%;
+  padding: 1rem 3rem;
+  -webkit-box-shadow: 0 0.5rem 3rem $color-box-shadow;
+  box-shadow: 0 0.5rem 3rem $color-box-shadow;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.booking-form {
+  margin-top: -1rem;
+  // INPUT
+  &__input {
+    display: block;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1.1rem;
+    text-indent: 1rem;
+    margin-top: 1rem;
+    width: 27rem;
+    height: 4rem;
+    border-radius: 3px;
+    border: none;
+    border-bottom: 3px solid transparent; // makes it same height with :focus;
+    -webkit-transition: all 0.5s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+
+    &:focus {
+      // when user inputs
+      outline: none; // not showing default outline
+      box-shadow: 0 0.5rem 3rem $color-box-shadow; // showing shadow to emphasize
+      border-bottom: 3px solid $color-primary;
+    }
+
+    &:focus:invalid {
+      // what happens when inputs are invalid
+      border-bottom: 3px solid $color-warning;
+    }
+
+    &::-webkit-input-placeholder {
+      color: DarkGray;
+    }
+
+    &::-moz-placeholder {
+      color: DarkGray;
+    }
+
+    &::-ms-input-placeholder {
+      color: DarkGray;
+    }
+
+    &::placeholder {
+      color: DarkGray;
+    }
+  }
+  // LABELS
+  &__label {
+    font-size: 1rem;
+    color: inherit;
+    font-weight: 700;
+    margin-left: 1rem;
+    display: block;
+    -webkit-transition: all 0.3s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    // selects the __input when placeholder is shown and what happens to the sibling right after it, which is __label
+    opacity: 0; // invisible, still on page
+    visibility: hidden; // completely gone; visibility can't be animated, so opacity needs to be set
+    transform: translateY(-3rem);
+  }
+  // RADIO
+  &__radio-group {
+    display: inline-block;
+    width: 18%;
+    margin-top: 1.1rem;
+  }
+
+  &__radio-label {
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    padding: 0.2rem 0 0 3rem;
+  }
+
+  &__radio-btn {
+    height: 1.5rem;
+    width: 1.5rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block; // has to be block or inline-block for height & width to work
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &::after {
+      display: block;
+      content: "";
+      height: 1.1rem;
+      width: 1.1rem;
+      border-radius: 50%;
+      background-color: $color-primary;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      opacity: 0; // hides the dots inside the circles when not-yet-clicked
+      transition: all 0.3s;
+    }
+  }
+
+  &__radio-input:checked ~ &__radio-label &__radio-btn::after {
+    // when __radio-input is checked,
+    // select __radio-label THEN its child __radio-btn THEN __radio-btn::after (so the ::after content is animated);
+    opacity: 1;
+  }
+
+  &__radio-input {
+    display: none;
+  }
+  // CTA BUTTON
+  &__cta {
+    margin-top: 3rem;
+  }
+}

@@ -1,0 +1,42 @@
+.section-about {
+  background-color: $color-grey-light;
+  margin-top: -15vh;
+  padding: 13rem 15rem;
+}
+
+.section-features {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10rem 17rem;
+  background-image: -webkit-gradient(linear, left top, right top, from($color-secondary), to($color-primary)), url("images/nat-4.jpg");
+  background-image: linear-gradient(to right, $color-secondary, $color-primary), url("images/nat-4.jpg");
+  background-size: cover;
+  -webkit-transform: skewY(-5deg);
+  transform: skewY(-5deg);
+  margin-top: -10vh;
+
+  & > * {
+    -webkit-transform: skewY(5deg);
+    transform: skewY(5deg);
+  }
+}
+
+.section-tours {
+  padding: 10rem 17rem;
+  background-color: $color-grey-light;
+  margin-top: -9vh;
+}
+
+.section-stories {
+  padding: 5rem 17rem;
+  position: relative;
+}
+
+.section-booking {
+  height: 100vh;
+  background-image: -webkit-gradient(linear, left top, right top, from($color-secondary), to($color-primary));
+  background-image: linear-gradient(to right, $color-secondary, $color-primary);
+  padding: 0 15rem;
+  position: relative;
+}

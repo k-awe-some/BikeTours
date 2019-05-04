@@ -1,0 +1,166 @@
+.nav {
+  &__checkbox {
+    display: none; // completely gets rid of its physical space
+  }
+
+  &__checkbox:checked ~ &__background {
+    -webkit-transform: scale(80);
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%; // enables it to take up the entire width
+  }
+
+  &__btn {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    background-color: $color-white;
+    position: fixed;
+    top: 5rem;
+    right: 5rem;
+    z-index: 2000; // on the uttermost top
+    -webkit-box-shadow: 0 1rem 4rem $color-box-shadow;
+    -webkit-box-shadow: 0 1rem 4rem $color-box-shadow;
+    box-shadow: 0 1rem 4rem $color-box-shadow;
+    text-align: center; // center the __burger
+    cursor: pointer;
+  }
+
+  &__background {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    position: fixed; // make it sticky on scroll
+    top: 6rem;
+    right: 6rem;
+    background-image: radial-gradient($color-secondary-solid, $color-primary-solid);
+    z-index: 1000; // on the third top
+    -webkit-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all 0.9s cubic-bezier(0.86, 0, 0.07, 1);
+    transition: all 0.9s cubic-bezier(0.86, 0, 0.07, 1); // custom transition easing
+  }
+
+  &__nav {
+    height: 100vh;
+    position: fixed; // fixed on scroll; top & right values have to be defined right after
+    top: 0;
+    left: 0; // makes the whole nav move from left when nav__btn is clicked; "right=0" does otherwise
+    z-index: 1500; // on the second top
+    opacity: 0; // links still remain on page
+    width: 0; // links are completely gone; use width, NOT visibility, to create movement from one side to the other on click
+    transition: all 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55); // https://easings.net
+  }
+
+  &__list {
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    span {
+      margin-right: 1rem;
+    }
+  }
+
+  &__item {
+    margin: 2rem 0;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block; // so transform can happen and padding can be applied properly
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 2.2rem;
+      font-weight: 300;
+      padding: 1.5rem 2rem;
+      color: $color-white;
+      letter-spacing: 0.1rem;
+      background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%); // create the "slash" border
+      background-size: 220%; // increase bg-size to move the gradient border to the right, then shift it back later on hover
+      -webkit-transition: all 0.5s;
+      -webkit-transition: all 0.4s;
+      -webkit-transition: color 0s, all 0.4s;
+      -webkit-transition: font-weight 0s, all 0.4s;
+      transition: all 0.4s;
+    }
+
+    &:hover {
+      color: $color-primary;
+      padding: 1.5rem 2rem;
+      -webkit-transform: translateX(5px);
+      transform: translateX(5px);
+      background-position: 100%; // shifts the whole background-image (gradient) back to position 100%
+    }
+  }
+
+  &__burger {
+    position: relative;
+    margin-top: 3rem;
+    cursor: pointer;
+
+    &,
+    &::after,
+    &::before {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-black-footer;
+      display: inline-block;
+      -webkit-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+
+    &::after,
+    &::before {
+      content: ""; // always has to have content defined
+      position: absolute;
+      left: 0;
+    }
+
+    &::before {
+      top: -0.7rem;
+    }
+
+    &::after {
+      top: 0.7rem;
+    }
+  }
+
+  &__btn:hover &__burger::before {
+    // don't need adjacent as these have parent-child relationship
+    top: -1rem;
+  }
+
+  &__btn:hover &__burger::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__btn &__burger {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__btn &__burger::before {
+    top: 0; // moves it back to center
+    transform: rotate(135deg);
+
+  }
+
+  &__checkbox:checked + &__btn &__burger::after {
+    top: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-135deg);
+
+  }
+}

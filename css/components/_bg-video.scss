@@ -1,0 +1,17 @@
+.bg-video { // this is the container of the actual video
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%; // makes this div "bg-video" full size of its parent "flex-2-cols"
+  width: 100%;
+  z-index: -1;
+  opacity: 0.15;
+  overflow: hidden;
+
+  &__content {
+    width: 100%; // makes this "video" full size of its parent "bg-video"
+    height: 100%;
+    -o-object-fit: cover; // makes this html element ("video") cover the parent
+       object-fit: cover; // while still maintaining its aspect ratio
+  }
+}

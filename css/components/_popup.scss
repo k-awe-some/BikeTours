@@ -1,0 +1,100 @@
+.popup {
+  background-color: $color-popup-background;
+  height: 100vh;
+  width: 100%;
+  position: fixed; // has to define top and left position
+  // positioning something as "fixed" always makes it relative to its parent
+  top: 0;
+  left: 0;
+  z-index: 3000;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  // OPEN STATE OF THE TARGET POPUP
+  &:target {
+    // calls up the target "popup" for anchor links "Book now"
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    // when target open state of popup, choose what happens to the content box
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: translate(-50%, -50%) scale(1); // has to be translated back to center
+  }
+  // CLOSE BUTTON
+  &__close {
+    &:link,
+    &:visited {
+      float: right;
+      font-size: 3rem;
+      text-decoration: none;
+      color: inherit;
+      -webkit-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+
+  }
+
+  &__content {
+    width: 68.5%;
+    height: 60%;
+    background-color: $color-white;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1rem 4rem $color-box-shadow;
+    box-shadow: 0 1rem 4rem $color-box-shadow;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.25); // see "&:target &__content" above
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -webkit-transition: all .4s .2s; // last value is "delay" value
+    transition: all .4s .2s; // adds animation to the transform: translate, scale
+  }
+
+  &__image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    &--1,
+    &--2 {
+      display: inline-block; // has to be inline-block to have height defined
+      height: 50%;
+    }
+  }
+
+  &__text {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    padding: 3rem 3rem 4rem;
+
+    .paragraph {
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 2; // creates 2c cols for text
+      column-gap: 3rem;
+      -webkit-column-rule: 1px solid $color-grey-medium;
+      -moz-column-rule: 1px solid $color-grey-medium;
+      column-rule: 1px solid $color-grey-medium;
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+    }
+  }
+}

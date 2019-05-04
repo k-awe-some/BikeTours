@@ -1,0 +1,42 @@
+.composition {
+  position: relative;
+
+  &:hover &__photo:not(:hover) {  // on hovering the .composition
+    transform: scale(0.9);        // choose the .composition__photo that's not hovered
+  }
+
+  &__photo {
+    width: 60%;
+    -webkit-box-shadow: 0 1rem 2rem $color-box-shadow;
+            box-shadow: 0 1rem 2rem $color-box-shadow;
+    border-radius: 2px;
+    position: absolute;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    outline-offset: 1rem;
+
+    &--1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--2 {
+      right: 0;
+      top: 3rem;
+    }
+
+    &--3 {
+      top: 9rem;
+      right: 25%;
+    }
+
+    &:hover {
+      -webkit-transform: scale(1.05);
+              transform: scale(1.05);
+      -webkit-box-shadow: 0 2rem 4rem $color-box-shadow;
+              box-shadow: 0 2rem 4rem $color-box-shadow;
+      z-index: 1;
+      outline: 8px solid $color-primary;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.story {
+  padding: 1.5rem;
+  -webkit-box-shadow: 0 1rem 4rem $color-box-shadow;
+  box-shadow: 0 1rem 4rem $color-box-shadow;
+  background-color: $color-white-transparent;
+  -webkit-transform: skewX(-12deg);
+  transform: skewX(-12deg);
+
+  &:not(:last-child) {
+    margin-bottom: 7rem;
+  }
+
+  & > * {
+    -webkit-transform: skewX(12deg);
+    transform: skewX(12deg);
+  }
+
+  &__shape {
+    height: 10rem;
+    width: 10rem;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-transform: translateX(-2rem);
+    transform: translateX(-2rem) skewX(12deg);
+    position: relative;
+  }
+
+  &__image {
+    height: 100%; // 100% of the parent (shape)
+    transform: translateX(-18%) scale(1.4); // all value have to be in 1 property "transform"
+    -webkit-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+
+  &__caption {
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, 20%);
+    transform: translate(-50%, 20%);
+    opacity: 0;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; // prevent it from slightly moving back down on hovering
+  }
+
+  &:hover &__caption {
+    // as soon as "story" is hovered, "caption" changes
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translateY(-50%, -50%);
+  }
+
+  &:hover &__image {
+    -webkit-transform: translateX(-18%) scale(1);
+    transform: translateX(-18%) scale(1);
+    -webkit-filter: blur(2px) brightness(80%);
+            filter: blur(2px) brightness(80%);
+  }
+
+  &__cta {
+      width: auto;
+  }
+
+}
